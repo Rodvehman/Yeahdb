@@ -1,3 +1,13 @@
+*{
+    margin: 10px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+opcoes{
+    display:inline-block;
+}
+
 /* Estilo do contêiner do dropdown */
 .dropdown {
   position: relative; /* Essencial para o posicionamento absoluto do conteúdo */
