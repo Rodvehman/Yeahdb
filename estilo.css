@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.espaco_bandas {
+    max-width: 1200px;
+    margin: 20px;
+}
+
+.linha_cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.box_img {
+    flex: 1 1 calc(33.33% - 10px);
+    aspect-ratio: 3 / 4; /* Proporção 3x4 */
+    position: relative; /* Garante o contexto para posicionamento absoluto */
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 300px;
+    max-height: 400px; /* Ajustado para manter a proporção 3x4 (300 * 4/3 = 400) */
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra o contêiner sem distorção */
+    border-radius: 10px; /* Arredonda a imagem em 8px */
+}
+
+.box_img.placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative; /* Garante que a imagem fique na camada base */
+    z-index: 0; /* Coloca a imagem atrás do texto */
+}
+
+.box_img .texto-overlay {
+    position: absolute;
+    bottom: 10px; /* Posiciona na parte inferior */
+    left: 10px;
+    right: 0;
+    display: center;
+    flex-direction: column;
+    align-items: left;
+    z-index: 1; /* Coloca o texto à frente da imagem */
+}
+
+#titulo_destaque{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    padding: 10px;
+    text-align: center;
+}
+
+ #titulo_destaque .destaque {
+    color: rgb(61, 175, 175); /* Cor diferente para a palavra "Destaque" */
+}
+
+.titulo_banda {
+    font-size: clamp(1rem, 2.5vw, 1.6rem); /* Ajusta o tamanho da fonte dinamicamente */
+    color: #ffffff;
+    text-align: left;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0px 10px;
+    margin-bottom: 0;
+    border-radius: 5px 5px 0 0;
+    width: auto;
+    max-width: 97%;
+    white-space: nowrap; /* Impede a quebra de linha */
+    overflow: hidden; /* Esconde o texto que ultrapassa */
+    text-overflow: ellipsis; /* Adiciona reticências no texto cortado */
+}
+
+.estilo_musical {
+    font-size: 1.3rem;
+    color: #ffc402;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    margin-top: 0;
+    border-radius: 0 0 5px 5px;
+    width: auto;
+    max-width: 97%;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.box_img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries */
+@media (max-width: 430px) {
+    .linha_cards {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .box_img {
+        flex: 1 1 100%;
+        max-width: 100%;
+        aspect-ratio: 1;
+        min-height: 150px;
+    }
+
+    .box_img .texto-overlay {
+        bottom: 10px;
+    }
+
+    .titulo_banda {
+        font-size: 1.3rem;
+        padding: 6px 12px;
+    }
+
+    .estilo_musical {
+        font-size: 0.9rem;
+        padding: 4px 12px;
+    }
+}
+
+@media (min-width: 431px) and (max-width: 768px) {
+    .box_img {
+        flex: 1 1 calc(50% - 10px);
+        max-width: 45%;
+    }
+}
